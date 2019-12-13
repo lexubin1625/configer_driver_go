@@ -4,7 +4,7 @@ package driver
 #cgo LDFLAGS:  -lconfiger -L/usr/local/lib   -lgdbm -lstdc++ 
 #include <stdlib.h>
 #include <stdio.h>
-#include "api.h"
+#include "configer/api.h"
 */
 import "C"
 
