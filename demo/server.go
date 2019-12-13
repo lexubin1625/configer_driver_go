@@ -13,7 +13,7 @@ func SimpleServer(w http.ResponseWriter,request *http.Request){
 }
 
 func main(){
-	api.ConfigerInit("/data0/soft/configer",5000);
+	api.ConfigerInit("/data0/soft/configer",5000)
 	http.HandleFunc("/configrt/etcd/get",SimpleServer)
 	if err := http.ListenAndServe(":8888",nil);err != nil{
 	}
