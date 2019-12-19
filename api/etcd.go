@@ -9,7 +9,13 @@ package driver
 import "C"
 
 import (
-     "unsafe"
+	"errors"
+	"fmt"
+	"unsafe"
+)
+
+const (
+	success_code = 0
 )
 
 var (
@@ -29,19 +35,24 @@ func ConfigerInit(path string,valLength int){
 
 // etcd获取
 func EtcdGet(key string)(string,error){
-	etcdKey := C.CString(key);
+	etcdKey := C.CString(key)
 	defer C.free(unsafe.Pointer(etcdKey))
 	var cPtrValue *C.char
 	cValue := make([]C.char, _valLength)
 	cPtrValue = (*C.char)(unsafe.Pointer(&(cValue[0])))
 
 	// 共享内存获取
-	C.get_tbl_val(etcdKey,cPtrValue);
-	etcdValue := C.GoString(cPtrValue)
-	if len(etcdValue) <= 0 {
-		// dump获取
-		C.get_dump_tbl_val(etcdKey,cPtrValue);
-		etcdValue = C.GoString(cPtrValue)
+	shmRet := C.get_tbl_val(etcdKey,cPtrValue)
+	if shmRet == success_code { // 存在情况下
+		return C.GoString(cPtrValue),nil
 	}
-	return etcdValue,nil
+
+	// 本地dump获取
+	dumpRet := C.get_dump_tbl_val(etcdKey,cPtrValue)
+	if dumpRet == success_code {
+		return C.GoString(cPtrValue),nil
+	}
+
+	errorMsg := fmt.Sprintf("configer go get %s is faild ,get shm code %d, get dump code %d",key,shmRet,dumpRet)
+	return "",errors.New(errorMsg)
 }

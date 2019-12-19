@@ -3,7 +3,7 @@ package main
 import(
 	"io"
 	"net/http"
-	api "configer/api"
+	api "git.intra.weibo.com/user_growth_common/configer_go/api"
 )
 
 func SimpleServer(w http.ResponseWriter,request *http.Request){
