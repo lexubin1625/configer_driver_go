@@ -8,6 +8,6 @@ func main(){
 	api.ConfigerInit("/data0/soft/configer",5000)
 
 	// 获取值
-	etcdValue,_ := api.EtcdGet("/234242342134")
+	etcdValue,_ := api.EtcdGet("/tauth/234242342134")
 	fmt.Printf(etcdValue)
 }
