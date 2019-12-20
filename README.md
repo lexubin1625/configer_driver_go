@@ -12,8 +12,14 @@ import (
 )
 
 // 初始化
-path (string) configer安装路径
-valLength (int) 要获取值最大长度
+path := "configer_path" //configer安装路径
+valLength := 3*1024*1024 // 要获取值最大长度 注意单位为字节
 api.ConfigerInit(path,valLength)
 
+// 获取
+	etcdValue,err := api.EtcdGet("/tauth/234242342134")
+    if err != nil {
+        // 异常处理
+    }
+	fmt.Printf(etcdValue)
 ```
