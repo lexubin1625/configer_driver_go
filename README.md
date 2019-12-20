@@ -7,11 +7,12 @@
  
  3、go get -v -insecure
 
-###### 代码实例
+###### 代码实例 (可参考test目录下文件)
 ```go
-
+  
 import (
 	api "git.intra.weibo.com/user_growth_common/configer_go"
+   // 其他库按需载入
 )
 
     // 初始化
