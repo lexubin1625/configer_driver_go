@@ -2,7 +2,9 @@
 
 ###### 配置说明
  1、configer 已安装
+ 
  2、替换git地址，git config --global --add url."ssh://git@git.intra.weibo.com:2222/".insteadOf "http://git.intra.weibo.com/"
+ 
  3、go get -v -insecure
 
 ```go
