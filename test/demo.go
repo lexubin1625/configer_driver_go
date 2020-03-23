@@ -1,13 +1,18 @@
+/*
+ * @Author: your name
+ * @Date: 2020-02-28 11:45:14
+ * @LastEditTime: 2020-03-19 11:35:38
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /configer/driver/go/configer/demo/demo.go
+ */
 package main
 import (
 	"fmt"
-	api "git.intra.weibo.com/user_growth_common/configer_go/api"
+	configer "configer_driver_go/driver"
 )
 func main(){
-	// 初始化
-	api.ConfigerInit("/data0/soft/configer",5000)
-
-	// 获取值
-	etcdValue,_ := api.EtcdGet("/tauth/234242342134")
+	configer.ConfInit("/Users/xubin6/Documents/www/go/src/configer",0,5000)
+	etcdValue,_ := configer.ConfGet("/test/key21")
 	fmt.Printf(etcdValue)
 }

@@ -11,17 +11,18 @@
 ```go
   
 import (
-	api "git.intra.weibo.com/user_growth_common/configer_go"
+	configer "git.intra.weibo.com/user_growth_common/configer_driver_go"
    // 其他库按需载入
 )
 
     // 初始化
     path := "configer_path" //configer安装路径
     valLength := 3*1024*1024 // 要获取值最大长度 注意单位为字节
-    api.ConfigerInit(path,valLength)
+    shmKey := 0 // 共享内存首地址 为0时设置为默认地址
+    configer.ConfInit(path,shmKey,valLength)
 
     // 获取
-	etcdValue,err := api.EtcdGet("/tauth/234242342134")
+	etcdValue,err := configer.ConfGet("/tauth/234242342134")
     if err != nil {
         // 异常处理
     }
