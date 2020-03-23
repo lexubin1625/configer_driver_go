@@ -11,7 +11,7 @@
 ```go
   
 import (
-	configer "git.intra.weibo.com/user_growth_common/configer_driver_go"
+	configer "git.intra.weibo.com/user_growth_common/configer_driver_go/driver"
    // 其他库按需载入
 )
 
