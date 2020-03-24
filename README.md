@@ -5,13 +5,13 @@
  
  2、替换git地址，git config --global --add url."ssh://git@git.intra.weibo.com:2222/".insteadOf "http://git.intra.weibo.com/"
  
- 3、go get -v -insecure
+ 3、go get -insecure -v -mod=readonly && CGO_ENABLED=1
 
 ###### 代码实例 (可参考test目录下文件)
 ```go
   
 import (
-	configer "git.intra.weibo.com/user_growth_common/configer_driver_go/driver"
+	configer "git.intra.weibo.com/user_growth_common/configer_driver_go"
    // 其他库按需载入
 )
 
