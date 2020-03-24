@@ -1,4 +1,4 @@
-package driver
+package configer_driver_go
 
 /*
 #cgo LDFLAGS:  -lconfiger -lgdbm -lstdc++
