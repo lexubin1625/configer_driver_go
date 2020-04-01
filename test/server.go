@@ -3,7 +3,7 @@ package main
 import(
 	"io"
 	"net/http"
-	configer "git.intra.weibo.com/user_growth_common/configer_driver_go"
+	configer "github.com/lexubin1625/configer_driver_go"
 )
 
 func SimpleServer(w http.ResponseWriter,request *http.Request){

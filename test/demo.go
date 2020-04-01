@@ -9,7 +9,7 @@
 package main
 import (
 	"fmt"
-	configer "git.intra.weibo.com/user_growth_common/configer_driver_go"
+	configer "github.com/lexubin1625/configer_driver_go"
 )
 func main(){
 	configer.ConfInit("/Users/xubin6/Documents/www/go/src/configer",0,5000)
