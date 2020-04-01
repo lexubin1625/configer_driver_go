@@ -29,7 +29,7 @@ func ConfInit(path string, shmKey int, valLength int) {
 	configerPath := C.CString(path)
 	C.configer_init(configerPath, C.int(shmKey))
 
-	if valLength > 0 {
+	if valLength >= 0 {
 		_valLength = valLength
 	}
 }
