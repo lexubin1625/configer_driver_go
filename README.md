@@ -14,7 +14,7 @@ import (
 )
 
     // 初始化
-    path := "configer_path" //configer安装路径
+    path := "configer_path/data" //configer data目录
     valLength := 3*1024*1024 // 要获取值最大长度 注意单位为字节
     shmKey := 0 // 共享内存首地址 为0时设置为默认地址
     configer.ConfInit(path,shmKey,valLength)
